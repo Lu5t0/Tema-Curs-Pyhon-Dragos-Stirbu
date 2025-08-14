@@ -1,0 +1,88 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang2057{\fonttbl{\f0\fnil\fcharset0 020F0502020204030204;}{\f1\fnil\fcharset238 Arial;}{\f2\fnil\fcharset238 Calibri;}{\f3\fmodern JetBrains Mono;}}
+{\colortbl ;\red207\green142\blue109;\red188\green190\blue196;\red86\green168\blue245;\red136\green136\blue198;\red106\green171\blue115;\red42\green172\blue184;\red170\green73\blue38;\red95\green130\blue107;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa160\sl278\slmult0\f0\fs24\lang9 1. Se d\f1\'e3\f0  un fi\f1\u537?\f0 ier produse.csv care con\f1\u539?\f0 ine coloanele: id, nume, pret. Scrie un program care cite\f1\u537?\f0 te \f1\u537?\f0 i afi\f1\u537?\f0 eaz\f2\'e3\f0  toate produsele din fi\f1\u537?\f0 ier.\par
+2. Creeaz\f1\'e3\f0  un fi\f1\u537?\f0 ier CSV numit note.csv care con\f1\u539?\f0 ine: nume_elev, materie, nota. Introdu 5 \'eenregistr\f1\'e3\f0 ri hardcodate \f1\u537?\f0 i scrie-le \'een fi\f1\u537?\f0 ier.\par
+3. Se d\f1\'e3\f0  un fi\f1\u537?\f0 ier angajati.csv. Afi\f1\u537?\f0 eaz\f2\'e3\f0  c\'e2te angaj\f1\'e3\f0 ri sunt (excluz\'e2nd antetul).\par
+4. Se da un fisier note.csv care contine: nume_elev, materie, nota (cu posibile repetitii ale aceluiasi nume).\par
+Folose\f2\u537?te csv.DictReader pentru a citi un fi\u537?ier studenti.csv \u537?i afi\u537?eaz\'e3 toate numele elevilor care au media peste 8.\par
+\f0 5. Se d\f1\'e3\f0  un fi\f1\u537?\f0 ier vanzari.csv cu coloane: id, produs, cantitate, pret_unitar. Afi\f1\u537?\f0 eaz\f2\'e3 doar produsele care au generat o valoare total\'e3 mai mare de 100 lei (pret_unitar * cantitate).\par
+\f0 6. * Dintr-un fi\f1\u537?\f0 ier cheltuieli.csv cu: zi, categorie, suma, calculeaz\f1\'e3\f0  suma total\f1\'e3\f0  cheltuit\f1\'e3\f0  pe fiecare categorie \f1\u537?\f0 i scrie rezultatul \'eentr-un fi\f1\u537?\f0 ier total_pe_categorie.csv.\par
+7. * Se d\f1\'e3\f0  un fi\f1\u537?\f0 ier studenti.csv. Creeaz\f1\'e3\f0  un nou fi\f1\u537?\f0 ier studenti_actualizat.csv unde fiecare elev are c\'e2mpul status ad\f1\'e3\f0 ugat: Promovat dac\f1\'e3\f0  media > 5, altfel Corigent.\par
+8. * Ai dou\f1\'e3\f0  fi\f1\u537?\f0 iere: clienti.csv (id_client, nume_client) \f1\u537?\f0 i comenzi.csv (id_comanda, id_client, suma, data). Scrie un program care produce un nou fi\f1\u537?\f0 ier raport.csv cu toate comenzile \f1\u537?\f0 i numele clientului corespunz\f1\'e3\f0 tor (bazat pe id_client).\par
+9. Se d\f1\'e3\f0  un fi\f1\u537?\f0 ier emailuri.csv cu o coloan\f1\'e3\f0  email. Creeaz\f1\'e3\f0  un fi\f1\u537?\f0 ier nou emailuri_unice.csv f\f1\'e3\f0 r\f2\'e3 emailuri duplicate.\par
+\f0 10. Se d\f1\'e3\f0  un fi\f1\u537?\f0 ier angajati.csv cu nume, salariu. Cre\f1\u537?\f0 te salariul tuturor cu 10% \f1\u537?\f0 i modifica rezultatul \'een acelasi fi\f1\u537?\f0 ier.\par
+\par
+Incercati sa faceti rezolvarile in cadrul unor functii, unde e cazul, si organizati rularea codului in acel \lquote  if __name__ == \ldblquote __main__\rdblquote : \lquote . Obisnuiti-va sa va pastrati munca organizata in acest format.\par
+\par
+\par
+\par
+EX1 \par
+
+\pard\box\brdrdash\brdrw0 \sa160\sl278\slmult0\cf1\f3\fs20 import \cf2 csv\line\line\cf1 def \cf3 produse\cf2 ():\line\line     \cf1 with \cf4 open\cf2 (\cf5 "produse.csv"\cf2 ,\cf5 "r"\cf2 ) \cf1 as \cf2 file:\line         reader = csv.reader(file)\line         header = \cf4 next\cf2 (reader)\line         \cf4 print\cf2 (\cf5 f"\cf1\{\cf2 header[\cf6 0\cf2 ]\cf1 :\cf5 <12\cf1\}\{\cf2 header[\cf6 1\cf2 ]\cf1 :\cf5 <10\cf1\}\{\cf2 header[\cf6 2\cf2 ]\cf1 :\cf5 <5\cf1\}\cf5 "\cf2 )\line\line         \cf1 for \cf2 row \cf1 in \cf2 reader:\line             id_produs, nume, pret = row\line             \cf4 print\cf2 (\cf5 f"\cf1\{\cf2 id_produs\cf1 :\cf5 <12\cf1\}\{\cf2 nume\cf1 :\cf5 <10\cf1\}\{\cf2 pret\cf1 :\cf5 <5\cf1\}\cf5 "\cf2 )\line\line\cf1 if \cf2 __name__ == \cf5 "__main__"\cf2 :\line     produse()\par
+
+\pard\sa160\sl278\slmult0\cf0\f0\fs24\par
+EX 2\par
+
+\pard\box\brdrdash\brdrw0 \sa160\sl278\slmult0\cf1\f3\fs20 import \cf2 csv\line\line\cf1 def \cf3 lista_elevi\cf2 ():\line     filename = \cf5 "note.csv"\line     \cf2 note = [\line         [\cf5 "nume_elev"\cf2 , \cf5 "materie"\cf2 , \cf5 "nota"\cf2 ],\line         [\cf5 "Andrei Popescu"\cf2 , \cf5 "Romana"\cf2 , \cf6 6\cf2 ],\line         [\cf5 "Ana Dobre"\cf2 ,\cf5 "Istorie"\cf2 , \cf6 8\cf2 ],\line         [\cf5 "Ion Ionescu"\cf2 , \cf5 "Biologie"\cf2 , \cf6 10\cf2 ],\line         [\cf5 "Ana Dobre"\cf2 , \cf5 "Matematica"\cf2 , \cf6 9\cf2 ],\line         [\cf5 "Ion Ionescu"\cf2 , \cf5 "Romana"\cf2 , \cf6 8\cf2 ],\line         [\cf5 "Andrei Popescu"\cf2 , \cf5 "Matematica"\cf2 , \cf6 4\cf2 ],\line\line     ]\line     \cf1 with \cf4 open\cf2 (\cf5 'note.csv'\cf2 , \cf5 'w'\cf2 , \cf7 newline\cf2 =\cf5 ''\cf2 ) \cf1 as \cf2 file:\line         writer = csv.writer(file)\line         writer.writerows(note)\line         \cf4 print\cf2 (\cf5 f"Fisierul '\cf1\{\cf2 filename\cf1\}\cf5 ' a fost creat cu succes."\cf2 )\line\line\cf1 if \cf2 __name__ == \cf5 '__main__'\cf2 :\line     lista_elevi()\par
+
+\pard\sa160\sl278\slmult0\cf0\f0\fs24\par
+EX 3\par
+\par
+
+\pard\box\brdrdash\brdrw0 \sa160\sl278\slmult0\cf1\f3\fs20 import \cf2 csv\line\line\cf1 def \cf3 angajati\cf2 ():\line     numar_angajati = \cf6 0\line     \cf1 with \cf4 open\cf2 (\cf5 "angajati.csv"\cf2 , \cf5 "r"\cf2 ) \cf1 as \cf2 file:\line         reader = csv.reader(file)\line         \cf4 next\cf2 (reader)\line         \cf1 for \cf2 _ \cf1 in \cf2 reader:\line             numar_angajati += \cf6 1\line     \cf4 print\cf2 (\cf5 f"Numarul de angajari:\cf1\{\cf2 numar_angajati\cf1\}\cf5 "\cf2 )\line\line\cf1 if \cf2 __name__ == \cf5 '__main__'\cf2 :\line     angajati()\par
+
+\pard\sa160\sl278\slmult0\cf0\f0\fs24\par
+\par
+EX 4\par
+\par
+
+\pard\box\brdrdash\brdrw0 \sa160\sl278\slmult0\cf1\f3\fs20 import \cf2 csv\line\cf1 def \cf3 medie_peste_8\cf2 ():\line     suma_note = \{\}\line     numar_note = \{\}\line     \cf1 with \cf4 open\cf2 (\cf5 "note.csv"\cf2 , \cf5 "r"\cf2 , \cf7 newline\cf2 =\cf5 ''\cf2 ) \cf1 as \cf2 file:\line         reader = csv.DictReader(file)\line         \cf1 for \cf2 row \cf1 in \cf2 reader:\line             nume = row[\cf5 "nume_elev"\cf2 ]\line             \cf1 try\cf2 :\line                 nota = \cf4 float\cf2 (row[\cf5 "nota"\cf2 ])\line             \cf1 except \cf4 ValueError\cf2 :\line                 \cf4 print\cf2 (\cf5 f"Nota invalida pentru \cf1\{\cf2 nume\cf1\}\cf5 : \cf1\{\cf2 row[\cf5 'nota'\cf2 ]\cf1\}\cf5 "\cf2 )\line                 \cf1 continue\line             if \cf2 nume \cf1 in \cf2 suma_note:\line                 suma_note[nume] += nota\line                 numar_note[nume] += \cf6 1\line             \cf1 else\cf2 :\line                 suma_note[nume] = nota\line                 numar_note[nume] = \cf6 1\line         \cf4 print\cf2 (\cf5 "Elevii cu media peste 8:"\cf2 )\line         \cf1 for \cf2 nume \cf1 in \cf2 suma_note:\line             media = suma_note[nume] / numar_note[nume]\line             \cf1 if \cf2 media > \cf6 8\cf2 :\line                 \cf4 print\cf2 (\cf5 f"\cf1\{\cf2 nume\cf1\}\cf5  - media \cf1\{\cf2 media\cf1 :\cf5 .2f\cf1\}\cf5 "\cf2 )\line\line\line\cf1 if \cf2 __name__ == \cf5 '__main__'\cf2 :\line     medie_peste_8()\par
+
+\pard\sa160\sl278\slmult0\cf0\f0\fs24\par
+\par
+EX 5\par
+\par
+
+\pard\box\brdrdash\brdrw0 \sa160\sl278\slmult0\cf1\f3\fs20 import \cf2 csv\line\line\cf1 def \cf3 pret_total\cf2 ():\line     \cf1 with \cf4 open\cf2 (\cf5 'vanzari.csv'\cf2 , \cf7 newline\cf2 =\cf5 ''\cf2 ) \cf1 as \cf2 csvfile:\line         reader = csv.DictReader(csvfile)\line         \cf1 for \cf2 row \cf1 in \cf2 reader:\line             id = row[\cf5 'id_produs'\cf2 ]\line             \cf1 try\cf2 :\line                 pret = \cf4 float\cf2 (row[\cf5 'pret_unitar'\cf2 ])\line                 cantitate = \cf4 float\cf2 (row[\cf5 'cantitate'\cf2 ])\line                 valoare = cantitate * pret\line                 \cf1 if \cf2 valoare > \cf6 100\cf2 :\line                     \cf4 print\cf2 (\cf5 f"Id produs: \cf1\{\cf2 id\cf1\}\cf5  - valoare totala: \cf1\{\cf2 valoare\cf1\}\cf5  lei"\cf2 )\line             \cf1 except \cf4 ValueError\cf2 :\line                 \cf4 print\cf2 (\cf5 f"Date invalide in randul: \cf1\{\cf2 row\cf1\}\cf5 "\cf2 )\line\line\cf1 if \cf2 __name__ == \cf5 "__main__"\cf2 :\line     pret_total()\par
+
+\pard\sa160\sl278\slmult0\cf0\f0\fs24\par
+\par
+EX 6 \par
+\par
+\par
+
+\pard\box\brdrdash\brdrw0 \sa160\sl278\slmult0\cf1\f3\fs20 import \cf2 csv\line\line\cf1 def \cf3 cheltuieli_citite\cf2 ():\line     \cf8\i "Citim suma si calulcam totalul"\line     \cf2\i0 suma_totala = \{\}\line     \cf1 with \cf4 open\cf2 (\cf5 'cheltuieli.csv'\cf2 , \cf7 newline\cf2 =\cf5 ''\cf2 ) \cf1 as \cf2 csvfile:\line         reader = csv.DictReader(csvfile)\line         \cf1 for \cf2 row \cf1 in \cf2 reader:\line             categorie = row[\cf5 'categorie'\cf2 ]\line             \cf1 try\cf2 :\line                 suma = \cf4 float\cf2 (row[\cf5 'suma'\cf2 ])\line             \cf1 except \cf4 ValueError\cf2 :\line                 \cf4 print\cf2 (\cf5 f"Valoarea sumei pentru categoria '\cf1\{\cf2 categorie\cf1\}\cf5 ' este invalida."\cf2 )\line             \cf1 if \cf2 categorie \cf1 not in \cf2 suma_totala:\line                 suma_totala[categorie] = suma\line             \cf1 else\cf2 :\line                 suma_totala[categorie] += suma\line         \cf1 return \cf2 suma_totala\line\cf1 def \cf3 cheltuieli_totale\cf2 (suma_totala, fisier_output):\line     \cf8\i "Scriem suma totala in fisier_output"\line     \cf1\i0 with \cf4 open\cf2 (fisier_output, \cf5 'w'\cf2 , \cf7 newline\cf2 =\cf5 ''\cf2 ) \cf1 as \cf2 csvfile:\line         writer = csv.writer(csvfile)\line         writer.writerow([\cf5 "categorie"\cf2 ,\cf5 "total_suma"\cf2 ])\line         \cf1 for \cf2 categorie, total  \cf1 in \cf2 suma_totala.items():\line             writer.writerow([categorie, total])\line\line\line\cf1 if \cf2 __name__ == \cf5 "__main__"\cf2 :\line     cheltuieli_totale(cheltuieli_citite(),\cf5 'total_pe_categorie.csv'\cf2 )\par
+
+\pard\sa160\sl278\slmult0\cf0\f0\fs24\par
+\par
+EX 7\par
+\par
+\par
+
+\pard\box\brdrdash\brdrw0 \sa160\sl278\slmult0\cf1\f3\fs20 import \cf2 csv\line\line\cf1 def \cf3 calcul_medie\cf2 ():\line     \cf8\i "Calcul medie si  s-a introdus status"\line     \cf2\i0 note_studenti = \{\}\line     \cf1 with \cf4 open\cf2 (\cf5 "studenti.csv"\cf2 , \cf7 newline\cf2 =\cf5 ""\cf2 ) \cf1 as \cf2 csvfile:\line         reader = csv.DictReader(csvfile)\line         \cf1 for \cf2 row \cf1 in \cf2 reader:\line             nume = row[\cf5 "nume_elev"\cf2 ]\line             note = \cf4 float\cf2 (row[\cf5 "nota"\cf2 ])\line             \cf1 if \cf2 nume \cf1 in \cf2 note_studenti:\line                 note_studenti[nume].append(note)\line             \cf1 else\cf2 :\line                 note_studenti[nume] = [note]\line         studenti = []\line         \cf1 for \cf2 nume, note \cf1 in \cf2 note_studenti.items():\line             media = \cf4 sum\cf2 (note) / \cf4 len\cf2 (note)\line             status = \cf5 "Promovat" \cf1 if \cf2 media > \cf6 5 \cf1 else \cf5 "Corigent"\line             \cf2 studenti.append(\{\line                 \cf5 "nume_elev"\cf2 : nume,\line                 \cf5 "media"\cf2 : \cf4 round\cf2 (media, \cf6 2\cf2 ),\line                 \cf5 "status"\cf2 : status,\line             \})\line         \cf1 return \cf2 studenti\line\line\cf1 def \cf3 scrie_studenti\cf2 (studenti, fisier_de_iesire):\line     \cf8\i "Creaza noul fisier cu status"\line     \cf1\i0 with \cf4 open\cf2 (fisier_de_iesire, \cf5 "w"\cf2 , \cf7 newline\cf2 =\cf5 ""\cf2 ) \cf1 as \cf2 csvfile:\line         fieldnames = [\cf5 "nume_elev"\cf2 , \cf5 "media"\cf2 , \cf5 "status"\cf2 ]\line         writer = csv.DictWriter(csvfile, \cf7 fieldnames\cf2 =fieldnames)\line         writer.writeheader()\line         writer.writerows(studenti)\line\line\line\cf1 if \cf2 __name__ == \cf5 '__main__'\cf2 :\line     scrie_studenti(calcul_medie(), \cf7 fisier_de_iesire\cf2 =\cf5 "studenti_actualizat.csv"\cf2 )\line\par
+
+\pard\sa160\sl278\slmult0\cf0\f0\fs24\par
+EX 8\par
+\par
+\par
+
+\pard\box\brdrdash\brdrw0 \sa160\sl278\slmult0\cf1\f3\fs20 import \cf2 csv\line\cf1 def \cf3 citesate_clienti\cf2 (inp_client):\line     clienti = \{\}\line     \cf1 with \cf4 open\cf2 (inp_client, \cf7 newline\cf2 =\cf5 ''\cf2 ) \cf1 as \cf2 csvfile:\line         csvreader = csv.DictReader(csvfile)\line         \cf1 for \cf2 row \cf1 in \cf2 csvreader:\line             id_client = row[\cf5 'id_client'\cf2 ]\line             nume = row[\cf5 'nume_client'\cf2 ]\line             clienti[id_client] = nume\line     \cf1 return \cf2 clienti\line\line\cf1 def \cf3 creaza_raport\cf2 (clienti,input_comenzi,raport):\line     comenzi = []\line     \cf1 with \cf4 open\cf2 (input_comenzi, \cf7 newline\cf2 =\cf5 ''\cf2 ) \cf1 as \cf2 csvfile:\line         csvreader = csv.DictReader(csvfile)\line         \cf1 for \cf2 row \cf1 in \cf2 csvreader:\line             id_comanda = row[\cf5 'id_comanda'\cf2 ]\line             id_client = row[\cf5 'id_client'\cf2 ]\line             suma = row[\cf5 'suma'\cf2 ]\line             data = row[\cf5 'data'\cf2 ]\line             nume_client = clienti.get(id_client, \cf5 "Necunoscut"\cf2 )\line             comenzi.append(\{\line                 \cf5 "id_comanda"\cf2 : id_comanda,\line                 \cf5 "nume_client"\cf2 : nume_client,\line                 \cf5 "suma"\cf2 : suma,\line                 \cf5 "data"\cf2 : data,\line             \})\line     \cf1 with \cf4 open\cf2 (raport,\cf5 "w"\cf2 , \cf7 newline\cf2 =\cf5 ''\cf2 ) \cf1 as \cf2 csvfile:\line         fieldnames = [\cf5 'id_comanda'\cf2 , \cf5 'nume_client'\cf2 , \cf5 'suma'\cf2 , \cf5 'data'\cf2 ]\line         writer = csv.DictWriter(csvfile, \cf7 fieldnames\cf2 =fieldnames)\line         writer.writeheader()\line         writer.writerows(comenzi)\line\line\line\cf1 if \cf2 __name__ == \cf5 "__main__"\cf2 :\line     creaza_raport(citesate_clienti(\cf5 "clienti.csv"\cf2 ),\cf5 "comenzi.csv"\cf2 ,\cf5 "raport.csv" \cf2 )\line\line\par
+
+\pard\sa160\sl278\slmult0\cf0\f0\fs24\par
+EX 9\par
+\par
+\par
+
+\pard\box\brdrdash\brdrw0 \sa160\sl278\slmult0\cf1\f3\fs20 import \cf2 csv\line\cf1 def \cf3 email_unic\cf2 ():\line     unice = []\line     \cf1 with \cf4 open\cf2 (\cf5 'emailuri.csv'\cf2 , \cf5 'r'\cf2 ) \cf1 as \cf2 csvfile:\line         reader = csv.reader(csvfile)\line         \cf4 next\cf2 (reader)\line         \cf1 for \cf2 row \cf1 in \cf2 reader:\line             \cf1 if \cf2 row \cf1 not in \cf2 unice:\line                 unice.append(row)\line         \cf1 return \cf2 unice\line\cf1 def \cf3 email_unice_nou\cf2 ():\line     fisier = \cf5 "emailuri_unice.csv"\line     \cf1 with \cf4 open\cf2 (\cf5 'emailuri_unice.csv'\cf2 , \cf5 'w'\cf2 , \cf7 newline\cf2 =\cf5 ""\cf2 ) \cf1 as \cf2 csvfile:\line         writer = csv.writer(csvfile)\line         writer.writerows(email_unic())\line         \cf4 print\cf2 (\cf5 f"Fisierul '\cf1\{\cf2 fisier\cf1\}\cf5 ' a fost creat cu succes."\cf2 )\line\line\line\cf1 if \cf2 __name__ == \cf5 '__main__'\cf2 :\line     email_unice_nou()\line\line\par
+
+\pard\sa160\sl278\slmult0\cf0\f0\fs24\par
+\par
+EX 10\par
+\par
+
+\pard\box\brdrdash\brdrw0 \sa160\sl278\slmult0\cf1\f3\fs20 import \cf2 csv\line\line\cf1 def \cf3 marire_salariu\cf2 ():\line     angajati_modificati = []\line     \cf1 with \cf4 open\cf2 (\cf5 'angajati2.csv'\cf2 , \cf7 newline\cf2 =\cf5 ''\cf2 ) \cf1 as \cf2 csvfile:\line         reader = csv.DictReader(csvfile)\line         \cf1 for \cf2 row \cf1 in \cf2 reader:\line             nume = row[\cf5 'nume'\cf2 ]\line             salariu = \cf4 float\cf2 (row[\cf5 'salariu'\cf2 ])\line             salariu_nou = \cf4 round\cf2 (salariu * \cf6 1.10\cf2 , \cf6 2\cf2 )\line             angajati_modificati.append(\{\cf5 "nume"\cf2 : nume, \cf5 "salariu"\cf2 : salariu_nou\})\line     \cf1 with \cf4 open\cf2 (\cf5 'angajati2.csv'\cf2 , \cf5 "w"\cf2 , \cf7 newline\cf2 =\cf5 ''\cf2 ) \cf1 as \cf2 csvfile:\line         fieldnames = [\cf5 'nume'\cf2 , \cf5 'salariu'\cf2 ]\line         writer = csv.DictWriter(csvfile, \cf7 fieldnames\cf2 =fieldnames)\line         writer.writeheader()\line         writer.writerows(angajati_modificati)\line\line\cf1 if \cf2 __name__ == \cf5 '__main__'\cf2 :\line     marire_salariu()\par
+
+\pard\sa160\sl278\slmult0\cf0\f0\fs24\par
+}
+ 
