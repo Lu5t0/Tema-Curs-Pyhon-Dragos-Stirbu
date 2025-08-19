@@ -1,3 +1,7 @@
+# Clasa „Car”
+# Creează o clasă Car cu atribute: brand, model, year.
+# Adaugă o metodă display_info() care afișează informațiile despre mașină.
+
 class Car:
     def __init__(self, brand, model, year):
         self.brand = brand
@@ -10,4 +14,3 @@ class Car:
 if __name__ == "__main__":
     car = Car("BMW", 2019, 12)
     car.display_info()
-
