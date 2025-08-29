@@ -33,4 +33,4 @@ if __name__ == '__main__':
               Circle(1.3)]
     total_area = sum(shape.area() for shape in shapes)
 
-    print(f"Aria totala a tuturor formelor este:{total_area:.2f}")
+    print(f"Aria totala a tuturor formelor este:{total_area:.2f    }")

@@ -25,5 +25,3 @@ if __name__ == '__main__':
         print(f"Media notelor este {medie:.2f}")
     else:
         print("Nu există note pentru a calcula media.")
-
-
